@@ -21,7 +21,7 @@ const FeaturedSection = () => {
             </div>
             <div className="flex flex-wrap max-sm:justify-center gap-8 mt-8">
                 {
-                    dummyShowsData.slice(0, 4).map((show) => ( // Remove slice(0, 4) to show all
+                    dummyShowsData.map((show) => ( // Remove slice(0, 4) to show all
                         <MovieCard key={show._id} movie={show}/>
                     ))
                 }
@@ -29,7 +29,7 @@ const FeaturedSection = () => {
             <div className="flex justify-center mt-20">
                 <button
                     onClick={() => { navigate("/movies"); scrollTo(0, 0) }}
-                    className="px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer "
+                    className="px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer"
                 >
                     Xem thêm
                 </button>
