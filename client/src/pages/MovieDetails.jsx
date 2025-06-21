@@ -6,6 +6,7 @@ import { Heart, PlayCircleIcon, StarIcon } from 'lucide-react';
 import timeFormat from '../lib/timeFormat';
 import DateSelect from '../components/DateSelect';
 import MovieCard from '../components/MovieCard';
+import Loading from '../components/Loading';
 
 const MovieDetails = () => {
 
@@ -89,7 +90,7 @@ const MovieDetails = () => {
                 </button>
             </div>
         </div>
-    ) : <div className="">Loading...</div>
+    ) : <Loading />
 }
 
 export default MovieDetails
