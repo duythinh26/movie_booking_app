@@ -9,6 +9,11 @@ import SeatLayout from './pages/SeatLayout.jsx'
 import Favorite from './pages/Favorite.jsx'
 import { Toaster } from 'react-hot-toast'
 import MyBookings from './pages/MyBookings.jsx'
+import AdminLayout from './pages/admin/AdminLayout.jsx'
+import Dashboard from './pages/admin/Dashboard.jsx'
+import AddMovie from './pages/admin/AddMovie.jsx'
+import ListMovies from './pages/admin/ListMovies.jsx'
+import ListBookings from './pages/admin/ListBookings.jsx'
 
 const App = () => {
 
@@ -25,6 +30,12 @@ const App = () => {
                 <Route path="/movies/:id/:date" element={<SeatLayout />}/>
                 <Route path="/my-bookings" element={<MyBookings />}/>
                 <Route path="/favorite" element={<Favorite />}/>
+                <Route path="/admin/*" element={<AdminLayout />}>
+                    <Route index element={<Dashboard />}/>
+                    <Route path="add-movies" element={<AddMovie />}/>
+                    <Route path="movies-list" element={<ListMovies />}/>
+                    <Route path="bookings-list" element={<ListBookings />}/>
+                </Route>
             </Routes>
             {!isAdminRoute &&<Footer />}
         </>
