@@ -7,6 +7,7 @@ import { clerkMiddleware } from '@clerk/express';
 import { serve } from "inngest/express";
 import { inngest, functions } from "./inngest/index.js";
 import showRouter from './routes/showRoutes.js';
+import bookingRouter from './routes/bookingRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
     res.send('Live server is running');
 })
 app.use('/api/show', showRouter)
+app.use('/api/booking', bookingRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
