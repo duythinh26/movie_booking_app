@@ -11,8 +11,8 @@ import { Toaster } from 'react-hot-toast'
 import MyBookings from './pages/MyBookings.jsx'
 import AdminLayout from './pages/admin/AdminLayout.jsx'
 import Dashboard from './pages/admin/Dashboard.jsx'
-import AddMovie from './pages/admin/AddMovie.jsx'
-import ListMovies from './pages/admin/ListMovies.jsx'
+import AddShows from './pages/admin/AddShows.jsx'
+import ListShows from './pages/admin/ListShows.jsx'
 import ListBookings from './pages/admin/ListBookings.jsx'
 import { useAppContext } from './context/AppContext.jsx'
 import { SignIn } from '@clerk/clerk-react'
@@ -40,8 +40,8 @@ const App = () => {
                     </div>
                 )}>
                     <Route index element={<Dashboard />}/>
-                    <Route path="add-movies" element={<AddMovie />}/>
-                    <Route path="movies-list" element={<ListMovies />}/>
+                    <Route path="add-shows" element={<AddShows />}/>
+                    <Route path="shows-list" element={<ListShows />}/>
                     <Route path="bookings-list" element={<ListBookings />}/>
                 </Route>
             </Routes>

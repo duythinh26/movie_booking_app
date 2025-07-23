@@ -18,13 +18,13 @@ const AdminSidebar = () => {
             icon: LayoutDashboardIcon
         },
         {
-            name: "Add Movies",
-            path: "/admin/add-movies",
+            name: "Add Shows",
+            path: "/admin/add-shows",
             icon: PlusSquareIcon
         },
         {
-            name: "List Movies",
-            path: "/admin/movies-list",
+            name: "List Shows",
+            path: "/admin/shows-list",
             icon: ListIcon
         },
         {

@@ -3,26 +3,26 @@ import { dummyShowsData } from '../../assets/assets';
 import Loading from '../../components/Loading';
 import Title from '../../components/admin/Title';
 import dateFormat from '../../lib/dateFormat';
+import { useAppContext } from '../../context/AppContext';
 
-const ListMovies = () => {
+const ListShows = () => {
 
     const currency = import.meta.env.VITE_CURRENCY;
+
+    const { axios, getToken, user } = useAppContext();
 
     const [shows, setShows] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const getAllShows = async () => {
         try {
-            setShows([{
-                movie: dummyShowsData[0],
-                showDateTime: "2025-07-07T02:30:00.000Z",
-                showPrice: 69000,
-                occupiedSeats: {
-                    A1: "user_1",
-                    B2: "user_2",
-                    C3: "user_3",
+            const { data } = await axios.get('/api/admin/all-shows', {
+                headers: {
+                    Authorization: `Bearer ${await getToken()}`
                 }
-            }])
+            })
+
+            setShows(data.shows)
             setIsLoading(false)
         } catch (error) {
             console.error(error);
@@ -30,12 +30,14 @@ const ListMovies = () => {
     }
 
     useEffect(() => {
-        getAllShows();
-    }, [])
+        if (user) {
+            getAllShows();
+        }
+    }, [user])
 
     return !isLoading ? (
         <>
-            <Title text1="Danh sách" text2="phim đang chiếu"/>
+            <Title text1="Danh sách" text2="phim đang chiếu" />
             <div className="max-w-4xl mt-6 overflow-x-auto">
                 <table className="w-full border-collapse rounded-md overflow-hidden text-nowrap">
                     <thead>
@@ -65,4 +67,4 @@ const ListMovies = () => {
     ) : <Loading />
 }
 
-export default ListMovies
+export default ListShows

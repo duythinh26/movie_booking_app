@@ -10,6 +10,8 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
 
+    const imageBaseUrl = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
+
     const [isAdmin, setIsAdmin] = useState(false)
     const [shows, setShows] = useState([])
     const [favoriteMovies, setFavoriteMovies] = useState([])
@@ -87,7 +89,8 @@ export const AppProvider = ({ children }) => {
         isAdmin,
         shows,
         favoriteMovies,
-        fetchFavoriteMovies
+        fetchFavoriteMovies,
+        imageBaseUrl
     }
 
     return (
